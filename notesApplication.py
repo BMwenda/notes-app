@@ -1,5 +1,5 @@
 '''
-Programming logic assignment: notes taking app
+Note taking app using Flask
 '''
 
 class NotesApplication(object):
@@ -13,11 +13,12 @@ class NotesApplication(object):
 	def create(self,note_content):
 		self.notes.append(note_content)
 
-	def list(self):
+	def alist(self):
+		mystr=''
 		for i in self.notes:
-			print ("Note ID: {0}\n{1}\n\nBy Author {2}".format(self.notes.index(i),i,self.author))
+			mystr+= ("Note ID: {0}\n{1}\n\nBy Author {2}\n".format(self.notes.index(i),i,self.author))
+		return mystr
 			
-
 	def get(self,note_id):
 		return self.notes[note_id]
 
@@ -28,13 +29,3 @@ class NotesApplication(object):
 
 	def edit(self,note_id,new_content):
 		self.notes[note_id]=new_content
-
-note1=NotesApplication("Banks")
-note2=NotesApplication("Bonny")
-for i in range(4):
-	note1.create("Note {0}".format(i))
-
-note1.edit(0,"First message")
-#print(note2.search('ot'))
-print(note1.list())
-#print(note1.get(0))
