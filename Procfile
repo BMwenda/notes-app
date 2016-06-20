@@ -1,1 +1,1 @@
-web: gunicorn primes:app
+web: gunicorn notes:app
